@@ -1,14 +1,14 @@
-print('*** sistemas de inventarios ***')
+print('*** Sistemas de Inventarios ***')
 
-inventario =[]
+inventario = []
 
-numero_productos = int(input('cuantos productos desea ingresar'))
+numero_productos = int(input('¿Cuántos productos desea ingresar? '))
 
 for i in range(numero_productos):
-    print(f'Ingresa los valores del producto {i+1}')
-    nombre = input('Nombre : ')
-    precio = float(input(('Precio : ')))
-    cantidad = int(input('Cantidad : '))
+    print(f'\nIngresa los valores del producto {i + 1}')
+    nombre = input('Nombre: ')
+    precio = float(input('Precio: '))
+    cantidad = int(input('Cantidad: '))
 
     producto = {
         'id': i + 1,
@@ -17,19 +17,20 @@ for i in range(numero_productos):
         'cantidad': cantidad
     }
     inventario.append(producto)
-    print(f'\n')
-print(f'\nInventario inicial : \n {inventario}')
 
-buscar= int(input(f'\n ingrese el valor a buscar'))
-producto_encontrado= None
+print('\nInventario inicial:')
+for producto in inventario:
+    print(producto)
+
+buscar = int(input('\nIngrese el ID del producto a buscar: '))
+producto_encontrado = None
 
 for producto in inventario:
-    if producto.get('id')== buscar:
-        producto_encontrado=producto
+    if producto.get('id') == buscar:
+        producto_encontrado = producto
+        break
 
-        break
-    if producto_encontrado != None:
-        print(f'\n producto encontrado :\n {producto}')
-        break
-    else :
-        print(f'\n el producto {buscar} no fue encontrado')
+if producto_encontrado is not None:
+    print(f'\nProducto encontrado:\n{producto_encontrado}')
+else:
+    print('\nEl producto no fue encontrado.')
